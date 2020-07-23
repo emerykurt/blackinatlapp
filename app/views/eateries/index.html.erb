@@ -1,0 +1,13 @@
+<h1>Eateries#index</h1>
+<p>Find me in app/views/eateries/index.html.erb</p>
+
+<%# <form id="live-search-form" method="get" action="<%= eateries_path %>">
+  <%# <input id="big-search-box" name="q" type="text"/>
+</form>
+<div id="live-search-results"></div> %> %>
+
+<% @eateries.each do |eatery| %> 
+    <div>
+        <a href="/eateries/<%= eatery.id %>"><%= eatery.name_neighborhood %></a>
+    </div>
+<% end %> 

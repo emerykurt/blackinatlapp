@@ -1,0 +1,17 @@
+<h1><%= @eatery.name_neighborhood %></h1>
+<p>Find me in app/views/eateries/show.html.erb</p>
+
+<div>
+    <h4> This is <%= @eatery.name %> located in <%= @eatery.neighborhood %>. They offer delicious cuisine in the <%= @eatery.type_of_food %> category. This establishment in owned by <a href="https://www.google.com/search?q=<%= @eatery.owner %>"> <%= @eatery.owner %> </a>. To find out more information please reference the information below!</h4>
+    <% if not @eatery.website.blank? %>
+        <p>Website: <a href="<%= @eatery.website %>"> <%= @eatery.website %> </a></p>
+    <% end %>
+    <% if not @eatery.address.blank? %>
+        <p>Address: <%= @eatery.address %></p> 
+    <% end %>
+    <% if not @eatery.instagram.blank? %>
+        <p>Instagram: <a href="https://instagram.com/<%= @eatery.instagram %>"> @<%= @eatery.instagram %> </a></p> 
+    <% end %>
+</div>
+
+
