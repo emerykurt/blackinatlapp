@@ -10,9 +10,20 @@
   </head>
 
   <body>
-    <%= link_to( "Restaurants", eateries_path )%>
+
     <%# if signed in %>
-    <%= link_to( "Fave Five", top_five_path )%>
+      <%= link_to( "Profile", user_path(:id) )%>
+      <%= link_to( "Restaurants", eateries_path )%>
+      <%= link_to( "Fave Five", top_five_path )%>
+      <%= link_to( "Let's Splurge", expensive_eats_path )%>
+      <%= link_to( "Eat on a Dime", cheap_eats_path )%>
+      <%= link_to( "Log Out", logout_path )%>
+    <%# else %>
+      <%= link_to( "Sign up", new_user_path )%>
+      <%= link_to( "Login", login_path )%>
+      <%= link_to( "Restaurants", eateries_path )%>
+      <%= link_to( "Let's Splurge", expensive_eats_path )%>
+      <%= link_to( "Eat on a Dime", cheap_eats_path )%>
     <%# end %>
     <%= yield %>
   </body>

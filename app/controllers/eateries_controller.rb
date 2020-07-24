@@ -3,11 +3,6 @@ class EateriesController < ApplicationController
     @eateries = Eatery.all
   end
 
-  # def live_search
-  #   @eatery = Eatery.find_latest params[:q]
-  #   render :layout => false
-  # end
-
   def show
     @eatery = Eatery.find(params[:id])
   end
@@ -23,4 +18,10 @@ class EateriesController < ApplicationController
   def cheap_eateries
     #show cheap eateries based upon ratings
   end
+
+  # def live_search
+  #   @eatery = Eatery.find_latest params[:q]
+  #   render :layout => false
+  # end
+
 end
