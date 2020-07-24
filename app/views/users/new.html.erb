@@ -1,1 +1,18 @@
 <h1>Create Your User</h1>
+
+<%= form_for(@user) do |f| %>
+    <%= f.label :Username %>:
+    <%= f.text_field :username %><br/>
+    <%= f.label :First_Name %>:
+    <%= f.text_field :first_name %><br/>
+    <%= f.label :Last_Name %>:
+    <%= f.text_field :last_name %><br/>
+    <%= f.label :Email %>:
+    <%= f.text_field :email %><br/>
+    <%= f.label :Password %>:
+    <%= f.text_field :password_digest %><br/><br/>
+    <%= f.submit %>
+<% end %>
+    
+
+     
