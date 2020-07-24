@@ -15,4 +15,12 @@ class EateriesController < ApplicationController
   def favorite_eateries
     #show top 5 ratings
   end
+
+  def expensive_eateries
+    #show expensive spots based upon ratings
+  end
+
+  def cheap_eateries
+    #show cheap eateries based upon ratings
+  end
 end
