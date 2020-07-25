@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
+    skip_before_action :authorized, only: [:new, :create]
 
+    
     def create
         @user = User.create(user_params)
         if @user.save
-            redirect_to user_path(@user)
+            session[:user_id] = @user.id
+            redirect_to '/welcome'
         else
             render :new
         end

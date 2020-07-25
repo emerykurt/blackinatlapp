@@ -1,1 +1,9 @@
 <h1>User Login</h1>
+
+<%= form_for('/session/login') do |f| %>
+    <%= f.label :Username %>:
+    <%= f.text_field :username %><br/>
+    <%= f.label :Password %>:
+    <%= f.text_field :password_digest %><br/><br/>
+    <%= f.submit :login %>
+<% end %>

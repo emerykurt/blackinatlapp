@@ -12,6 +12,10 @@
     <% if not @eatery.instagram.blank? %>
         <p>Instagram: <a href="https://instagram.com/<%= @eatery.instagram %>"> @<%= @eatery.instagram %> </a></p> 
     <% end %>
+
+    <% if logged_in? %>
+    <%= button_to("Rate", new_rating_path)%>
+    <% end %>
 </div>
 
 
