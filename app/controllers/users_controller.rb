@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:new, :create]
+    skip_before_action :authorized, only: [:create]
 
     
     def create
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        @shoe.update(user_params)
+        @user.update(user_params)
         redirect_to user_path(@user)
     end
 
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         redirect_to eateries_path
     end
 
-    def show
+    def show     
     end
 
     private

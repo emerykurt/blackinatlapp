@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
   get '/sessions/login', to: 'sessions#login', as: 'login'
   post '/sessions/login', to: 'sessions#create' 
-  get '/sessions/logout', to: 'sessions#logout', as: 'logout'
+  get '/sessions/logout', to: 'sessions#destroy', as: 'logout'
   get '/welcome', to: 'sessions#welcome', as: 'welcome'
   get 'authorized', to: 'sessions#page_requires_login', as: 'require_login'
   get '/eateries/favorite_eateries', to: 'eateries#favorite_eateries', as: 'top_five'
