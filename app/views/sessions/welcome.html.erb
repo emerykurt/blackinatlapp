@@ -1,8 +1,11 @@
-<h1>Welcome</h1>
+<h1>Welcome to Blackin ATL</h1>
+<h3>The place where you can find black owned businesses!</h3>
 
 <% if logged_in? %>
-    <h1>You are Logged In, <%= current_user.username %></h1>
-<%end%>
-
-<%= button_to( "Sign up", new_user_path )%>
-<%= button_to( "Login", sessions_login_path )%>
+    <h1>You are Logged In, <%= current_user.first_name %></h1>
+<%else%>
+    <h2>Welcome back! Please Login</h2>
+    <%= button_to( "Login", login_path )%>
+    <h2>Not a member:</h2>
+    <%= button_to( "Sign up", new_user_path )%>
+<% end %>

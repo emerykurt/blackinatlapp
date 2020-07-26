@@ -1,5 +1,5 @@
 class EateriesController < ApplicationController
-  skip_before_action :authorized, only: [:index, :show]
+  
 
   def index
     @eateries = Eatery.all

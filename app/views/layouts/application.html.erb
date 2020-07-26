@@ -10,20 +10,22 @@
   </head>
 
   <body>
+
     <% if logged_in? %>
-      <%= button_to( "Profile", user_path(:id) )%>
-      <%= button_to( "Restaurants", eateries_path )%>
-      <%= button_to( "Fave Five", top_five_path )%>
-      <%= button_to( "Let's Splurge", expensive_eats_path )%>
-      <%= button_to( "Eat on a Dime", cheap_eats_path )%>
-      <%= button_to( "Log Out", logout_path )%>
+      <%= link_to( "Profile", user_path(current_user.id) )%>
+      <%= link_to( "Restaurants", eateries_path )%>
+      <%= link_to( "Fave Five", top_five_path )%>
+      <%= link_to( "Let's Splurge", expensive_eats_path )%>
+      <%= link_to( "Eat on a Dime", cheap_eats_path )%>
+      <%= link_to( "Log Out", logout_path )%>
     <% else %>
-      <%= button_to( "Sign up", new_user_path)%>
-      <%= button_to( "Login", sessions_login_path )%>
-      <%= button_to( "Restaurants", eateries_path )%>
-      <%= button_to( "Let's Splurge", expensive_eats_path )%>
-      <%= button_to( "Eat on a Dime", cheap_eats_path )%>
+      <%= link_to( "Sign up", new_user_path)%>
+      <%= link_to( "Login", login_path )%>
+      <%= link_to( "Restaurants", eateries_path )%>
+      <%= link_to( "Let's Splurge", expensive_eats_path )%>
+      <%= link_to( "Eat on a Dime", cheap_eats_path )%>
     <% end %>
+
     <%= yield %>
   </body>
 </html>

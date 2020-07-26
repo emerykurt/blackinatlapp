@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:new, :create]
+    
 
     
     def create
+        byebug
         @user = User.create(user_params)
         if @user.save
             session[:user_id] = @user.id
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        @shoe.update(user_params)
+        @user.update(user_params)
         redirect_to user_path(@user)
     end
 
@@ -33,11 +34,12 @@ class UsersController < ApplicationController
     end
 
     def show
+        @user = User.find(params[:id])
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:username, :first_name, :last_name, :email, :password_digest)
+        params.require(:user).permit(:id, :username, :first_name, :last_name, :email, :password)
     end
 end
