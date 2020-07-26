@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_07_23_234639) do
   create_table "ratings", force: :cascade do |t|
     t.integer "user_id"
     t.integer "eatery_id"
-    t.integer "price_point"
+    t.boolean "price_point"
     t.integer "customer_service"
     t.integer "product_quality"
     t.integer "checkout_experience"
