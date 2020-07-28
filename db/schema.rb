@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_234639) do
+ActiveRecord::Schema.define(version: 2020_07_28_033515) do
 
   create_table "eateries", force: :cascade do |t|
     t.string "name"
@@ -25,8 +25,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_234639) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "eatery_id"
     t.boolean "price_point"
     t.integer "customer_service"
     t.integer "product_quality"
@@ -35,6 +33,10 @@ ActiveRecord::Schema.define(version: 2020_07_23_234639) do
     t.integer "average"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "eatery_id", null: false
+    t.integer "user_id", null: false
+    t.index ["eatery_id"], name: "index_ratings_on_eatery_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +49,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_234639) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "ratings", "eateries"
+  add_foreign_key "ratings", "users"
 end

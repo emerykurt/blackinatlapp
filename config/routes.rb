@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   post '/users/new', to: 'users#new'
+  get '/users/user_ratings', to: 'users#user_ratings', as: 'user_ratings'
   resources :users, except: [:index]
   get '/sessions/login', to: 'sessions#login', as: 'login'
   post '/sessions/login', to: 'sessions#create' 
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   get '/eateries/expensive_eateries', to: 'eateries#expensive_eateries', as: 'expensive_eats'
   get '/eateries/cheap_eateries', to: 'eateries#cheap_eateries', as: 'cheap_eats'
   resources :eateries, only: [:index, :show]
+  get '/ratings', to: 'ratings#create'
   post '/ratings/new', to: 'ratings#new'
   resources :ratings, except: [:index]
   

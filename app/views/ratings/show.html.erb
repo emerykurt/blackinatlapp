@@ -1,1 +1,11 @@
-<h1>Your Rating for this Restaurant</h1>
+<h2>Your Rating for <%= @rating.eatery.name %></h2>
+
+   <p>Customer Service: <%= @rating.customer_service %></p>
+   <p>Prodcut Quality: <%= @rating.product_quality %></p> 
+   <p>Checkout Experience: <%= @rating.checkout_experience %></p>
+   <p>Overall Experience: <%= @rating.overall_experience %></p>
+   <p>Expensive: <%=  %></p>
+   <p>Average: <%= @rating.average %></p>
+
+<%= link_to("Edit Rating", edit_rating_path(@rating))%>
+<%= link_to("Delete Rating", rating_path(@rating), method: 'delete')%>

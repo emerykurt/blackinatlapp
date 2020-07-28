@@ -1,4 +1,4 @@
-<h1><%= @eatery.name_neighborhood %></h1>
+<h2><%= @eatery.name_neighborhood %></h2>
 <p>Find me in app/views/eateries/show.html.erb</p>
 
 <div>
@@ -14,7 +14,11 @@
     <% end %>
 
     <% if logged_in? %>
-    <%= button_to("Rate", new_rating_path)%>
+    <br/>
+    <br/>
+    <br/>
+    <h2>Rate this Restaurant:</h2>
+    <%= render 'form' %>
     <% end %>
 </div>
 

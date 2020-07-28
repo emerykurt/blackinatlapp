@@ -1,0 +1,4 @@
+<h1>All the User's Rating</h1>
+<% @user.ratings.each do |rating| %>
+    <%= link_to "#{@user.eatery.name}", rating_path(@rating) %>   
+<% end %>

@@ -35,6 +35,10 @@ class UsersController < ApplicationController
     def show     
     end
 
+    def user_ratings
+        @user = Rating.find_by_id(params[:user_id])
+    end
+
     private
 
     def user_params

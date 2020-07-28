@@ -1,4 +1,5 @@
-<%= form_for "rating", :url => { :controller => "ratings", :action => "update" }, :html => {:method => :patch} do |f| %>
+<%= form_for "rating", :url => { :controller => "ratings", :action => "create" }, :html => {:method => :post} do |f| %>
+  <%= f.hidden_field :eatery_id, value: @eatery.id %>
     <%= f.label :Expensive %>:
     <%= f.check_box :price_point %><br/>
     <%= f.label :Customer_Service %>:

@@ -5,13 +5,11 @@ class SessionsController < ApplicationController
     end
 
     def create
-
-        @user = User.find_by(params[:username])
-        if @user && @user.authenticate(params[:password])
-            sessions[:user_id] = @user.id
+        @user = User.find_by_username(user_params[:username])
+        if @user && @user.authenticate(user_params[:password])
+            session[:user_id] = @user.id
             redirect_to "/users/#{@user.id}"
         else
-            flash.now.alert = "Invalid email or password"
             redirect_to '/sessions/login'
         end
     end
@@ -23,4 +21,11 @@ class SessionsController < ApplicationController
 
     def page_requires_login
     end
+
+    private
+
+    def user_params
+        params.require(:user).permit(:username, :first_name, :last_name, :email, :password)
+    end
+
 end

@@ -8,10 +8,12 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <h1>Blackin - Atlanta</h1>
 
   <body>
     <% if logged_in? %>
       <%= link_to( "Profile", user_path(:id) )%>
+      <%= link_to( "Ratings", user_ratings_path )%>
       <%= link_to( "Restaurants", eateries_path )%>
       <%= link_to( "Fave Five", top_five_path )%>
       <%= link_to( "Let's Splurge", expensive_eats_path )%>
