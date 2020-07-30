@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-    
+    before_action :authorized
     def create
         @rating = Rating.new(rating_params)
         @rating.user_id = session[:user_id]
@@ -9,6 +9,13 @@ class RatingsController < ApplicationController
             redirect_to "/ratings/#{@rating.id}"   
         else
             render :new
+        end
+    end
+
+    def index
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @ratings = @user.ratings.order_by_avg
+            @list = @ratings.all
         end
     end
 

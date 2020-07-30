@@ -1,4 +1,6 @@
-<h1>User Login</h1>
+<h1>User Login</h1><br/>
+<%= flash[:message] %>
+<%= button_to "Log in with Google", '/auth/google_oauth2' %><br/>
 <%= form_for(:user, url: "/sessions/login") do |f| %>
     <%= f.label :Username %>:
     <%= f.text_field :username %><br/>

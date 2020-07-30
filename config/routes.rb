@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   post '/users/new', to: 'users#new'
   get '/users/user_ratings', to: 'users#user_ratings', as: 'user_ratings'
-  resources :users, except: [:index]
+  resources :users, except: [:index] do
+    resources :ratings, only: [:new, :create, :index]
+  end
+  get 'auth/:provider/callback', to: 'sessions#omniauth'
   get '/sessions/login', to: 'sessions#login', as: 'login'
   post '/sessions/login', to: 'sessions#create' 
   get '/sessions/logout', to: 'sessions#destroy', as: 'logout'
