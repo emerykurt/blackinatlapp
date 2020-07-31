@@ -12,9 +12,8 @@ Rails.application.routes.draw do
   get '/sessions/logout', to: 'sessions#destroy', as: 'logout'
   get '/welcome', to: 'sessions#welcome', as: 'welcome'
   get 'authorized', to: 'sessions#page_requires_login', as: 'require_login'
-  get '/eateries/favorite_eateries', to: 'eateries#favorite_eateries', as: 'top_five'
-  get '/eateries/expensive_eateries', to: 'eateries#expensive_eateries', as: 'expensive_eats'
-  get '/eateries/cheap_eateries', to: 'eateries#cheap_eateries', as: 'cheap_eats'
+  get '/ratings/expensive_eateries', to: 'ratings#expensive_eateries', as: 'expensive_eats'
+  get '/ratings/cheap_eateries', to: 'ratings#cheap_eateries', as: 'cheap_eats'
   resources :eateries, only: [:index, :show]
   get '/ratings', to: 'ratings#create'
   post '/ratings/new', to: 'ratings#new'

@@ -1,0 +1,3 @@
+<%@eats.each do |eats| %>
+    <%= link_to( eats.eatery.name, eatery_path("#{eats.eatery.id}"))%><br/>
+<% end %>

@@ -12,10 +12,20 @@ class RatingsController < ApplicationController
         end
     end
 
+    def expensive_eateries
+        @eats = Rating.all.expensive
+    end
+
+    def cheap_eateries
+        @eats = Rating.all.affordable
+    end
+
     def index
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+        if params[:user_id] == session[:user_id].to_s && @user = User.find_by_id(params[:user_id])
             @ratings = @user.ratings.order_by_avg
             @list = @ratings.all
+        else
+            redirect_to user_path(current_user)
         end
     end
 
@@ -32,6 +42,13 @@ class RatingsController < ApplicationController
     def show
         @rating = Rating.find_by_id(params[:id])
     end
+
+    def destroy
+        rating = Rating.find(params[:id]) 
+        rating.destroy
+        redirect_to "/users/#{current_user.id}/ratings"
+    end
+
 
     private
 
