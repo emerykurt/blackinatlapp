@@ -37,6 +37,8 @@ gem 'pry'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
+gem 'jquery-rails'
+gem 'bootstrap-sass'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

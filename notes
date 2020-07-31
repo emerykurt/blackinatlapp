@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlackInATLapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <h1>Blackin - Atlanta</h1>
+
+  <body>
+    <% if logged_in? %>
+      <%= link_to( "Profile", user_path(current_user) )%>
+      <%= link_to( "Ratings", "/users/#{current_user.id}/ratings" )%> 
+      <%= link_to( "Restaurants", eateries_path )%>
+      <%= link_to( "Let's Splurge", expensive_eats_path )%>
+      <%= link_to( "Eat on a Dime", cheap_eats_path )%>
+      <%= link_to( "Log Out", logout_path )%>
+    <% else %>
+      <%= link_to( "Sign up", new_user_path)%>
+      <%= link_to( "Login", sessions_login_path )%>
+      <%= link_to( "Restaurants", eateries_path )%>
+      <%= link_to( "Let's Splurge", expensive_eats_path )%>
+      <%= link_to( "Eat on a Dime", cheap_eats_path )%>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
