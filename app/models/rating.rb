@@ -12,6 +12,18 @@ class Rating < ApplicationRecord
     where(price_point: "false")
     end
 
+    def price
+        if self.price_point == "true"
+            "Yes"
+        else
+            "No"
+        end 
+    end
+
+    def self.avg
+        ((rating_params[:customer_service]).to_i + (rating_params[:product_quality]).to_i + (rating_params[:checkout_experience]).to_i + (rating_params[:overall_experience]).to_i) / 4
+    end
+
     # scope :budget, -> (price_point) {where("price_point LIKE ?", price_point)
     # def budget(price_point)
     #     where("price_point LIKE ?", price_point)
