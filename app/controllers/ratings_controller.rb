@@ -1,11 +1,9 @@
 class RatingsController < ApplicationController
     before_action :authorized
     def create
-        byebug
         @rating = Rating.new(rating_params)
         @rating.user_id = session[:user_id]
-        average = ((rating_params[:customer_service]).to_i + (rating_params[:product_quality]).to_i + (rating_params[:checkout_experience]).to_i + (rating_params[:overall_experience]).to_i) / 4
-        @rating.average = average 
+        @rating.average = Rating.avg(rating_params) 
         if @rating.save     
             redirect_to "/ratings/#{@rating.id}"   
         else
@@ -36,6 +34,7 @@ class RatingsController < ApplicationController
 
     def update
         @rating = Rating.find(params[:id])
+        @rating.average = Rating.avg(rating_params) 
         @rating.update(rating_params)
         redirect_to rating_path(@rating)
     end

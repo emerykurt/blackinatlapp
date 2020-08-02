@@ -6,5 +6,5 @@
 <p>Last Name: <%= current_user.last_name %></p>
 <p>Email: <%= current_user.email %></p>
 
-<%= link_to("Edit Profile", edit_user_path(current_user))%>
-<%= link_to("Delete Profile", user_path(current_user), method: 'delete')%>
+<%= link_to"<button>Edit Profile</button>".html_safe, edit_user_path(current_user)%>
+<%= button_to("Delete Profile", user_path(current_user), method: 'delete')%>

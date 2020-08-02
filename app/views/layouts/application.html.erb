@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -27,16 +28,17 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                      <% if logged_in? %> 
-                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/users/#{current_user.id}/ratings">Ratings</a></li>
-                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/ratings/expensive_eateries">Let's Splurge</a></li>
-                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/ratings/cheap_eateries">Eat on a Dime</a></li>
-                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/sessions/logout">Log Out</a></li>
-                      <% else %> 
-                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/users/new">Sign up</a></li>
-                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/sessions/login">Login</a></li>
-                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/ratings/expensive_eateries">Let's Splurge</a></li>
-                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/ratings/cheap_eateries">Eat on a Dime</a></li>
+                      <% if logged_in? %>
+                          <li class="nav-item"><%= link_to "Profile", user_path(current_user), class: "nav-link js-scroll-trigger"%></li> 
+                          <li class="nav-item"><%= link_to "Ratings", "/users/#{current_user.id}/ratings", class: "nav-link js-scroll-trigger"%></li> 
+                          <li class="nav-item"><%= link_to "Let's Splurge", expensive_eats_path, class: "nav-link js-scroll-trigger"%></li> 
+                          <li class="nav-item"><%= link_to "Eat on a Dime", cheap_eats_path, class: "nav-link js-scroll-trigger"%></li> 
+                          <li class="nav-item"><%= link_to "Log Out", logout_path, class: "nav-link js-scroll-trigger"%></li> 
+                      <% else %>
+                          <li class="nav-item"><%= link_to "Sign Up", new_user_path, class: "nav-link js-scroll-trigger"%></li>  
+                          <li class="nav-item"><%= link_to "Login", sessions_login_path, class: "nav-link js-scroll-trigger"%></li> 
+                          <li class="nav-item"><%= link_to "Let's Splurge", expensive_eats_path, class: "nav-link js-scroll-trigger"%></li> 
+                          <li class="nav-item"><%= link_to "Eat on a Dime", cheap_eats_path, class: "nav-link js-scroll-trigger"%></li> 
                       <% end %> 
                     </ul>
                 </div>

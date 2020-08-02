@@ -1,5 +1,4 @@
 <h2>Your Rating for <%= @rating.eatery.name %></h2>
-
    <p>Customer Service: <%= @rating.customer_service %></p>
    <p>Prodcut Quality: <%= @rating.product_quality %></p> 
    <p>Checkout Experience: <%= @rating.checkout_experience %></p>
@@ -7,5 +6,5 @@
    <p>Expensive: <%= @rating.price %></p>
    <p>Average: <%= @rating.average %></p>
 
-<%= link_to("Edit Rating", edit_rating_path(@rating))%>
-<%= link_to("Delete Rating", rating_path(@rating), method: 'delete')%>
+<%= link_to"<button>Edit Rating</button>".html_safe, edit_rating_path(@rating)%>
+<%= button_to("Delete Rating", rating_path, method: "delete")%>

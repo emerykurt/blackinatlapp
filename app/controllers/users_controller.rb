@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     def destroy
         user = User.find(params[:id]) 
         user.destroy
-        redirect_to "/users/#{current_user.id}/ratings"
+        redirect_to welcome_path
     end
 
     def show     
