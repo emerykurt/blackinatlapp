@@ -1,6 +1,7 @@
 # BlackIn - ATL
 
 * Models
+    
     ```User``
 
     - sign in capabilities
