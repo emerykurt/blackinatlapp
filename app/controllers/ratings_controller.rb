@@ -1,7 +1,13 @@
 class RatingsController < ApplicationController
     before_action :authorized
+
+    def new 
+        @eatery = Eatery.find_by_id(params[:eatery_id])
+        @rating = Rating.new
+    end
+
     def create
-        @rating = Rating.new(rating_params)
+        @rating = Rating.create(rating_params)
         @rating.user_id = session[:user_id]
         @rating.average = Rating.avg(rating_params) 
         if @rating.save     

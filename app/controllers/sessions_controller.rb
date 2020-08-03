@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session[:user_id] = nil
-        redirect_to '/welcome'
+        redirect_to welcome_path
     end
 
     def page_requires_login

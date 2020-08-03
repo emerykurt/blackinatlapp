@@ -9,16 +9,16 @@
     </ul>
   </div>
 <% end %>
-<%= form_for "rating", :url => { :controller => "ratings", :action => "update" }, :html => {:method => :patch} do |f| %>
+<%= form_for[@eatery, @rating] do |f| %>
     <%= f.label :Expensive %>:
     <%= f.check_box :price_point %><br/>
     <%= f.label :Customer_Service %>:
-    <%= f.number_field :customer_service, within: 0...11 %><br/>
+    <%= f.number_field :customer_service, within: 0...11%><br/>
     <%= f.label :Product_Quality %>:
     <%= f.number_field :product_quality, within: 0...11 %><br/>
     <%= f.label :Checkout_Experience %>:
     <%= f.number_field :checkout_experience, within: 0...11 %><br/>
     <%= f.label :Overall_Experience %>:
     <%= f.number_field :overall_experience, within: 0...11 %><br/><br/>
-    <%= f.submit :submit %>    
+    <%= f.submit %>    
 <% end %>

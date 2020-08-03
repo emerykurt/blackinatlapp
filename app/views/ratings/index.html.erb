@@ -1,6 +1,5 @@
 <h1>All <%= @user.first_name%>'s Rating</h1>
 <p>(Restaurant's name - Average Rating)</p>
 <%@list.each do |rating|%>
-<%= rating.eatery.name %> -
-    <%= link_to(rating.average, rating_path(rating)) %><br/>
+<%= rating.eatery.name %> - <%= link_to(rating.average, rating_path(rating)) %><br/>
 <%end%>
