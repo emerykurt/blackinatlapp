@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/ratings/expensive_eateries', to: 'ratings#expensive_eateries', as: 'expensive_eats'
   get '/ratings/cheap_eateries', to: 'ratings#cheap_eateries', as: 'cheap_eats'
   resources :eateries, only: [:index, :show] do
-    resources :ratings, only: [:new]
+    resources :ratings, only: [:new, :create]
   end
   post '/ratings/new', to: 'ratings#new'
   resources :ratings, except: [:index]
